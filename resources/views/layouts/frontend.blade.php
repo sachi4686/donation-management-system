@@ -157,8 +157,8 @@ html {
             <div class="menu-toggle" onclick="toggleMenu()">☰</div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="{{ url('/') }}">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#donate">Donate</a></li>
+                <li><a href="{{ route('fontend.about') }}">About</a></li>
+                <li><a href="{{ route('fontend.donatepage') }}">Donate</a></li>
                 <li><a href="{{ route('fontend.news') }}">News</a></li>
                 <li><a href="#contact">Contact Us</a></li>
                 <li><a href="{{ route('login') }}" class="login-btn">Login</a></li>

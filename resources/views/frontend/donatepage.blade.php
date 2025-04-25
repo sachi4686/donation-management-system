@@ -166,40 +166,110 @@ html {
         </div>
     </nav>
 
-
-             <!-- news section start -->
-      <div id="news" class="news_section layout_padding">
+       <!-- banner section start -->
+       <div class="banner_section layout_padding">
         <div class="container">
-           <div class="row">
-              <div class="col-sm-12">
-                 <h1 class="news_taital">FEATURED NEWS</h1>
-                 <p class="news_text">going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. </p>
-              </div>
-           </div>
-           <div class="news_section_2">
-              <div class="row">
-                 <div class="col-md-6">
-                    <div class="news_img"><img src="{{ asset('frontend/images/news-img.png') }}"></div>
+           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                 <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                 <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+              </ol>
+              <div class="carousel-inner">
+                 <div class="carousel-item active">
+                    <div class="row">
+                       <div class="col-sm-12">
+                          <h1 class="banner_taital">Donation</h1>
+                          <p class="banner_text">Suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going </p>
+                          {{-- <div class="read_bt"><a href="#">Read More</a></div> --}}
+                       </div>
+                    </div>
                  </div>
-                 <div class="col-md-6">
-                    <h1 class="give_taital">GIVE EDUCATION</h1>
-                    <p class="ipsum_text">variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by<br>
-                       injected humour, or randomised v<br>
-                       ariations of passages of Lorem Ipsum <br>
-                       available, but the majority have suffered alteration in some form, by injected humour, or randomised
-                    </p>
-                    <h5 class="raised_text">Raised: $60,010     <span class="goal_text">Goal: $70,000</span></h5>
-                    <div class="donate_btn_main">
-                       <div class="readmore_btn"><a href="#">Read More</a></div>
-                       <div class="readmore_btn_1"><a href="{{ url('donations') }}">Donate Now</a></div>
+                 <div class="carousel-item">
+                    <div class="col-sm-12">
+                       <h1 class="banner_taital">Donation</h1>
+                       <p class="banner_text">Suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going </p>
+                       {{-- <div class="read_bt"><a href="#">Read More</a></div> --}}
+                    </div>
+                 </div>
+                 <div class="carousel-item">
+                    <div class="col-sm-12">
+                       <h1 class="banner_taital">Donation</h1>
+                       <p class="banner_text">Suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going </p>
+                       {{-- <div class="read_bt"><a href="#">Read More</a></div> --}}
+                    </div>
+                 </div>
+                 <div class="carousel-item">
+                    <div class="col-sm-12">
+                       <h1 class="banner_taital">Donation</h1>
+                       <p class="banner_text">Suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going </p>
+                       {{-- <div class="read_bt"><a href="#">Read More</a></div> --}}
+                    </div>
+                 </div>
+                 <div class="carousel-item">
+                    <div class="col-sm-12">
+                       <h1 class="banner_taital">Donation</h1>
+                       <p class="banner_text">Suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going </p>
+                       {{-- <div class="read_bt"><a href="#">Read More</a></div> --}}
                     </div>
                  </div>
               </div>
            </div>
         </div>
      </div>
-     <!-- news section end -->
 
+
+        <div id="donate" class="events_section layout_padding">
+            <div class="container">
+               <div class="row">
+                  <div class="col-sm-12">
+                     <h1 class="news_taital">Donation Projects</h1>
+                     <p class="news_text">going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. </p>
+                  </div>
+               </div>
+               @foreach($projects as $project)
+               <div class="events_section_2">
+                  <div class="row">
+                     <div class="col-md-5">
+                        <div class="img_7">
+                            @if($project->image)
+                                <img src="{{ asset('storage/' . $project->image) }}" class="img_7">
+                            @else
+                                <img src="{{ asset('frontend/images/img-7.png') }}" class="img_7">
+                            @endif
+                        </div>
+                        <div class="date_bt">
+                           <div class="date_text active"><a href="#">{{ \Carbon\Carbon::parse($project->start_date)->format('d') }}</a></div>
+                           <div class="date_text"><a href="#">{{ \Carbon\Carbon::parse($project->start_date)->format('M') }}</a></div>
+                        </div>
+                     </div>
+                     <div class="col-md-7">
+                        <h1 class="give_taital_1">{{ $project->name }}</h1>
+                        <p class="ipsum_text_1">{{ Str::limit($project->description, 200) }}</p>
+                        <h5 class="raised_text_1">Raised: RS.{{ number_format($project->current_amount, 2) }} <span class="goal_text">Goal: RS.{{ number_format($project->target_amount, 2) }}</span></h5>
+                        <div class="donate_btn_main">
+                           <div class="readmore_btn"><a href="#">Read More</a></div>
+                           <div class="readmore_btn_1">
+                            <a href="{{ route('frontend.donate', $project->project_id) }}">Donate Now</a>
+
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               @endforeach
+
+            </div>
+         </div>
+
+       <!-- events section start -->
+
+     <!-- events section end -->
+       <!-- donate section start -->
+
+     <!-- donate section end -->
          <!-- footer section start -->
          <div id="contact" class="footer_section layout_padding">
             <div class="container">

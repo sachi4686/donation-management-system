@@ -25,6 +25,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontendController::class, 'home'])->name('frontend.home');
 Route::get('/donate/{project}', [FrontendController::class, 'donate'])->name('frontend.donate');
 Route::get('/news', [FrontendController::class,'news'])->name('fontend.news');
+Route::get('/about', [FrontendController::class,'about'])->name('fontend.about');
+Route::get('/donatepage', [FrontendController::class,'donatepage'])->name('fontend.donatepage');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
