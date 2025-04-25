@@ -29,6 +29,11 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+
+        $token = $request->user()->generateJwtToken();
+
+        $request->session()->put('token', $token);
+
         if($request->user()->hasRole('Donator')){
             return redirect()->route('donator.dashboard');
         }

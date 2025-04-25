@@ -18,4 +18,10 @@ class FrontendController extends Controller
         $projects = Project::all();
         return view('frontend.donate', compact('projects', 'project'));
     }
+
+    public function news(Request $request)
+    {
+
+        return view('frontend.news');
+    }
 }

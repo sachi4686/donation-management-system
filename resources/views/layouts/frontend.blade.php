@@ -150,35 +150,7 @@ html {
 </style>
 
 <body>
-    {{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand"><a href="index.html"><img src="{{ asset('frontend/images/logo.png') }}"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#donate">Donate</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#news">News</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact Us</a>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <a href="{{ route('login') }}" class="donate_btn">Login</a>
-                </form>
-            </div>
-    </nav> --}}
+
     <nav class="custom-navbar">
         <div class="container">
             <a href="{{ url('/') }}" class="brand"><img src="{{ asset('frontend/images/logo.png') }}" style="width: 50px"></a>
@@ -187,7 +159,7 @@ html {
                 <li><a href="{{ url('/') }}">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#donate">Donate</a></li>
-                <li><a href="#news">News</a></li>
+                <li><a href="{{ route('fontend.news') }}">News</a></li>
                 <li><a href="#contact">Contact Us</a></li>
                 <li><a href="{{ route('login') }}" class="login-btn">Login</a></li>
             </ul>

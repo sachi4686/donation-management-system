@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Firebase\JWT\JWT;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -48,4 +49,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(Donation::class, 'user_id');
     }
+
+    public function generateJwtToken()
+{
+    $payload = [
+        'iss' => config('app.url'), // Issuer
+        'sub' => $this->id,         // Subject (user ID)
+        'iat' => now()->timestamp,  // Issued at
+        'exp' => now()->addHours(2)->timestamp // Expiry
+    ];
+
+    return JWT::encode($payload, env('JWT_SECRET'), 'HS256');
+}
 }
