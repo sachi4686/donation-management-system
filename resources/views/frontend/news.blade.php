@@ -237,10 +237,10 @@ html {
                      <p class="footer_text">Chunks as necessary, making</p>
                   </div>
                   <div class="col-sm-6 col-md-6 col-lg-3">
-                     <h4 class="footer_taital">address</h4>
-                     <p class="footer_text">Ave NW, Washington</p>
-                     <p class="footer_text">+01 1234567890</p>
-                     <p class="footer_text">demo@gmail.com</p>
+                  <h4 class="footer_taital">address</h4>
+                     <p class="footer_text">Gampaha</p>
+                     <p class="footer_text">0767713102</p>
+                     <p class="footer_text">Donation@gmail.com</p>
                   </div>
                </div>
                <div class="footer_section_2">
