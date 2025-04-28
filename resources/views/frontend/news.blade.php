@@ -161,7 +161,7 @@ html {
                 <li><a href="{{ route('fontend.donatepage') }}">Donate</a></li>
                 <li><a href="{{ route('fontend.news') }}">News</a></li>
                 <li><a href="#contact">Contact Us</a></li>
-                <li><a href="{{ route('login') }}" class="login-btn">Login</a></li>
+                <li><a href="{{ route('login') }}" class="login-btn">Sign Up</a></li>
             </ul>
         </div>
     </nav>
