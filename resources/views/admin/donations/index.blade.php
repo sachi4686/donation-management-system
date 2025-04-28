@@ -46,7 +46,7 @@
                                             @endif
                                         </td>
                                         <td class="px-6 py-4 text-sm text-green-600 font-semibold">
-                                            ${{ number_format($donation->amount, 2) }}
+                                            {{ number_format($donation->amount, 2) }}
                                         </td>
                                         <td class="px-6 py-4 text-sm">
                                             <span
