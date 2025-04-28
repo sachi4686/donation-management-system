@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -42,7 +41,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+        'password'          => 'hashed',
     ];
 
     public function donations()
@@ -51,14 +50,17 @@ class User extends Authenticatable
     }
 
     public function generateJwtToken()
-{
-    $payload = [
-        'iss' => config('app.url'), // Issuer
-        'sub' => $this->id,         // Subject (user ID)
-        'iat' => now()->timestamp,  // Issued at
-        'exp' => now()->addHours(2)->timestamp // Expiry
-    ];
+    {
+        $payload = [
+            'iss' => config('app.url'),             // Issuer
+            'sub' => $this->id,                     // Subject (user ID)
+            'iat' => now()->timestamp,              // Issued at
+            'exp' => now()->addHours(2)->timestamp, // Expiry
+        ];
 
-    return JWT::encode($payload, env('JWT_SECRET'), 'HS256');
-}
+        // Ensure JWT_SECRET is a string for HMAC algorithms
+        $secret = (string) env('JWT_SECRET');
+
+        return JWT::encode($payload, $secret, 'HS256');
+    }
 }
