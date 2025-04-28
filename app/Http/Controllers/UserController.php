@@ -71,4 +71,20 @@ public function destroy(User $user)
     return redirect()->route('admin.users.index')->with('success', 'User deleted successfully.');
 }
 
+public function userRegister()
+{
+    return view('users.index');
+}
+
+public function registerUser(Request $request)
+{
+    $user = User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => bcrypt($request->password),
+    ]);
+    $user->assignRole('Donator');
+    return redirect()->route('login')->with('success', 'User created successfully.');
+}
+
 }
