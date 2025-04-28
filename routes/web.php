@@ -78,6 +78,9 @@ Route::prefix('donator')->group(function () {
 
 Route::get('donations', [DonationController::class, 'index'])->name('donations.index');
 Route::post('donations', [DonationController::class, 'store'])->name('donations.store');
+Route::get('users-register', [UserController::class,'userRegister'])->name('users-register');
+Route::post('/users-register', [UserController::class, 'registerUser'])->name('users.register');
+
 
 
 require __DIR__ . '/auth.php';
